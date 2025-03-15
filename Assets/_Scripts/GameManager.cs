@@ -1,12 +1,20 @@
-﻿using UnityEngine;
+﻿using System.Runtime.CompilerServices;
+using TMPro;
+using UnityEngine;
 
 public class GameManager : SingletonMonoBehavior<GameManager>
 {
     [SerializeField] private int maxLives = 3;
+    [SerializeField] private int score = 0;// Adding score variable
+    [SerializeField] private int lives = 3;// Adding lives variable
     [SerializeField] private Ball ball;
     [SerializeField] private Transform bricksContainer;
     [SerializeField] private float duration = 0.3f;
     [SerializeField] private float strength = 0.3f;
+
+    [Header("UI")]
+    [SerializeField] private CounterUI scoreCounterUI;
+    [SerializeField] private CounterUI livesCounterUI;
 
     private int currentBrickCount;
     private int totalBrickCount;
@@ -37,14 +45,18 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         CameraShake.Shake(duration, strength);
         currentBrickCount--;
         Debug.Log($"Destroyed Brick at {position}, {currentBrickCount}/{totalBrickCount} remaining");
-        if(currentBrickCount == 0) SceneHandler.Instance.LoadNextScene();
+        // update score on HUD here
+        scoreCounterUI.UpdateCount(++score);
+
+        if (currentBrickCount == 0) SceneHandler.Instance.LoadNextScene();
     }
 
     public void KillBall()
     {
-        maxLives--;
         // update lives on HUD here
+        livesCounterUI.UpdateCount(--maxLives);
         // game over UI if maxLives < 0, then exit to main menu after delay
         ball.ResetBall();
     }
 }
+
