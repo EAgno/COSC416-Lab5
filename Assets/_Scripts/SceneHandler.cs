@@ -42,6 +42,7 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
             StartCoroutine(LoadSceneAfterTransition(levels[nextLevelIndex]));
             nextLevelIndex++;
         }
+        AudioManager.instance.PlaySFX("Success");
     }
 
     public void LoadMenuScene()

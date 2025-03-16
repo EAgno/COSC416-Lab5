@@ -40,6 +40,7 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     public void OnBrickDestroyed(Vector3 position)
     {
         // fire audio here
+        AudioManager.instance.PlaySFX("Explosion");
         // implement particle effect here
         // add camera shake here
         CameraShake.Shake(duration, strength);
@@ -57,6 +58,8 @@ public class GameManager : SingletonMonoBehavior<GameManager>
         livesCounterUI.UpdateCount(--maxLives);
         // game over UI if maxLives < 0, then exit to main menu after delay
         ball.ResetBall();
+        AudioManager.instance.PlaySFX("Death");
+
     }
 }
 
