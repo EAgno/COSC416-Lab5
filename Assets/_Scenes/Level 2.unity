@@ -3000,6 +3000,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2838786339525877573, guid: 04422797258784b94a5804350c5ec1cb, type: 3}
+      propertyPath: startAmount
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4988294726335364664, guid: 04422797258784b94a5804350c5ec1cb, type: 3}
       propertyPath: m_Name
       value: HUD
@@ -3131,6 +3135,10 @@ PrefabInstance:
     - target: {fileID: 7742045032591038308, guid: 04422797258784b94a5804350c5ec1cb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127157838423760574, guid: 04422797258784b94a5804350c5ec1cb, type: 3}
+      propertyPath: m_text
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

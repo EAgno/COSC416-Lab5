@@ -1,5 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
+using System.Collections;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class GameManager : SingletonMonoBehavior<GameManager>
@@ -55,11 +57,29 @@ public class GameManager : SingletonMonoBehavior<GameManager>
     public void KillBall()
     {
         // update lives on HUD here
-        livesCounterUI.UpdateCount(--maxLives);
+        livesCounterUI.UpdateCount(--lives);
         // game over UI if maxLives < 0, then exit to main menu after delay
         ball.ResetBall();
         AudioManager.instance.PlaySFX("Death");
 
+        if (lives == 0)
+        {
+            HandleGameOver();
+        }
+    }
+
+    public void HandleGameOver()
+    {
+        SceneHandler.Instance.LoadGameOverScene(); // Load the Game Over scene
+
+        StartCoroutine(WaitAndLoadMenu()); // Start coroutine to wait before loading menu
+    }
+
+    private IEnumerator WaitAndLoadMenu()
+    {
+        yield return new WaitForSeconds(2f); // Pause time for 2 seconds
+
+        SceneHandler.Instance.LoadMenuScene(); // Load the Menu scene after the delay
     }
 }
 
