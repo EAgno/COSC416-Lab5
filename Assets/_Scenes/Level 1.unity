@@ -2801,10 +2801,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6846597512200348566, guid: 70365e4fb3127d44db431487cd761c1c, type: 3}
-      propertyPath: rb
-      value: 
-      objectReference: {fileID: 2054714182}
-    - target: {fileID: 6846597512200348566, guid: 70365e4fb3127d44db431487cd761c1c, type: 3}
       propertyPath: ballAnchor
       value: 
       objectReference: {fileID: 269931761}
@@ -2829,11 +2825,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01bd3e30eea244ddb8e3236978196fe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &2054714182 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 8959031048966596842, guid: 70365e4fb3127d44db431487cd761c1c, type: 3}
-  m_PrefabInstance: {fileID: 2054714179}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2108302737
 GameObject:
   m_ObjectHideFlags: 0
