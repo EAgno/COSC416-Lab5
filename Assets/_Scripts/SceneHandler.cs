@@ -32,7 +32,7 @@ public class SceneHandler : SingletonMonoBehavior<SceneHandler>
 
     public void LoadNextScene()
     {
-        if(nextLevelIndex >= levels.Count)
+        if (nextLevelIndex >= levels.Count)
         {
             LoadMenuScene();
         }
